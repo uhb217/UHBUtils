@@ -1,18 +1,44 @@
+package org.Uutils;
+
 import java.io.*;
 
-public class TextFile {
+public class TextFile extends File{
     private final String filepath;
 
     public TextFile(String filepath) {
-        File file = new File(filepath);
-        if (!file.exists()){
+        super(filepath);
+        this.filepath = filepath;
+        if (!this.exists() && isTXTFile()){
             try {
-                file.createNewFile();
+                this.createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        this.filepath = filepath;
+    }
+    private boolean isTXTFile(){
+        boolean[] txt = {false,false,false};
+        if (filepath.length() <= 4) {
+            try {
+                throw new Exception("The file is not a txt file");
+            }
+            catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+        txt[0] = filepath.charAt(filepath.length() - 1) == 't';
+        txt[1] = filepath.charAt(filepath.length() - 2) == 'x';
+        txt[2] = filepath.charAt(filepath.length() - 3) == 't';
+        if(txt[0] && txt[1] && txt[2])
+            return true;
+        else {
+            try {
+                throw new Exception("The file is not a txt file");
+            }
+            catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
     public String getFilepath(){
         return filepath;
