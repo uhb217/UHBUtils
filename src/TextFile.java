@@ -1,12 +1,17 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 
 public class TextFile {
     private final String filepath;
 
     public TextFile(String filepath) {
+        File file = new File(filepath);
+        if (!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         this.filepath = filepath;
     }
     public String getFilepath(){
