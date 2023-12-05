@@ -43,4 +43,12 @@ public class TextFile {
             e.printStackTrace();
         }
     }
+    public void addText(String text){
+        String fileText = getText();
+        write(fileText + text);
+    }
+    public void addTextNewLine(String text){
+        String fileText = getText();
+        write(fileText + "\n" + text);
+    }
 }
