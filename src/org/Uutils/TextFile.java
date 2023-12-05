@@ -1,7 +1,6 @@
 package org.Uutils;
 
 import java.io.*;
-
 public class TextFile extends File{
     private final String filepath;
 

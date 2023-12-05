@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="UHBUtils:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/UHBUtils_jar</output-path>
+    <root id="archive" name="UHBUtils.jar">
+      <element id="module-output" name="UHBUtils" />
+    </root>
+  </artifact>
+</component>
