@@ -7,9 +7,12 @@ public class DataSaver implements Serializable {
         this.data = data;
     }
     private DataSaver saveData(String filepathNoType) throws Exception {
-        if (data != null && isCorrectFile("ser",filepathNoType)){
+        if (data != null){
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filepathNoType + fileType));
-            out.writeObject(this); out.close(); }else throw new NullPointerException("-> Is no data to save 😔<-");
+            out.writeObject(this); out.close();
+        }
+        else
+            throw new NullPointerException("-> Is no data to save 😔<-");
         return this;
     }
     public static void saveData(Object data, String filepathNoType){
